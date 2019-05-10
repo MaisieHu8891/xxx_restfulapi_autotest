@@ -49,7 +49,7 @@ public class RestApi {
         String url = "";
         for (Map.Entry<String, String> entry : appkeyDomain.entrySet()) {
             if (appkey.contains(entry.getKey())) {
-                domain= entry.getKey();
+                domain= entry.getValue();
                 url = protocol+"://"+domain+"/"+uri;
                 logger.debug("当前环境下的地址是： "+url);
                 return url;
