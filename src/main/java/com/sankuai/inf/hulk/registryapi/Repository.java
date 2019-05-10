@@ -1,6 +1,8 @@
 package com.sankuai.inf.hulk.registryapi;
 
-
+/**
+ * Created by hujunxiang on 2019-04-28
+ */
 import io.restassured.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

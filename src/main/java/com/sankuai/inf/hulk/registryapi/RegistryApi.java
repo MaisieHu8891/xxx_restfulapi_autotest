@@ -1,5 +1,7 @@
 package com.sankuai.inf.hulk.registryapi;
-
+/**
+ * Created by hujunxiang on 2019-04-26
+ */
 import com.sankuai.inf.hulk.RestApi;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;

@@ -33,25 +33,27 @@ public class RestApi {
     private static final Logger logger = LoggerFactory.getLogger(RestApi.class);
 
     HashMap<String, Object> query = new HashMap<String, Object>();
+
     public RestApi() {
         useRelaxedHTTPSValidation();
     }
+
     public RequestSpecification getDefaultRequestSpecification() {
-        return given().log().all();
+        return given();
     }
 
     /**
      * 多环境支持，根据domain，组装url
      */
-    private String composeUrl(String uri,String appkey, String protocol) {
+    private String composeUrl(String uri, String appkey, String protocol) {
         HashMap<String, String> appkeyDomain = HulkConfig.getInstance().env.get(HulkConfig.getInstance().current);
         String domain = "";
         String url = "";
         for (Map.Entry<String, String> entry : appkeyDomain.entrySet()) {
             if (appkey.contains(entry.getKey())) {
-                domain= entry.getValue();
-                url = protocol+"://"+domain+"/"+uri;
-                logger.debug("当前环境下的地址是： "+url);
+                domain = entry.getValue();
+                url = protocol + "://" + domain + "/" + uri;
+                logger.debug("当前环境下的地址是： " + url);
                 return url;
             }
         }
@@ -71,6 +73,9 @@ public class RestApi {
     }
 
 
+    /**
+     * 通过抓包，将请求存到har文件，该方法更适用于有前端的项目
+     */
     public Restful getApiFromHar(String path, String pattern) {
         HarReader harReader = new HarReader();
         try {
@@ -95,7 +100,7 @@ public class RestApi {
 
             Restful restful = new Restful();
             restful.method = request.getMethod().name().toLowerCase();
-            restful.uri = request.getUrl().replaceAll("(.*)//(.*)/","").replaceAll("\\?(.*)","");
+            restful.uri = request.getUrl().replaceAll("(.*)//(.*)/", "").replaceAll("\\?(.*)", "");
             request.getQueryString().forEach(q -> {
                 restful.query.put(q.getName(), q.getValue());
             });
@@ -148,7 +153,9 @@ public class RestApi {
         return documentContext.jsonString();
     }
 
-
+    /**
+     * 如果post数据不是json格式，可适应Mustache模板技术
+     */
     public static String templateFromMustache(String path, HashMap<String, Object> map) {
         //new DefaultMustacheFactory().compile("/repositorydata/create.mustache").execute()
 
@@ -189,8 +196,8 @@ public class RestApi {
         if (restful.body != null) {
             requestSpecification.body(restful.body);
         }
-        String url = composeUrl(restful.uri,restful.appkey,restful.protocol);
-        if(url != null){
+        String url = composeUrl(restful.uri, restful.appkey, restful.protocol);
+        if (url != null) {
             return requestSpecification
                     .when().request(restful.method, url)
                     .then().extract().response();
@@ -216,8 +223,8 @@ public class RestApi {
         if (restful.body != null) {
             requestSpecification.body(restful.body);
         }
-        String url = composeUrl(restful.uri,restful.appkey,restful.protocol);
-        if(url != null){
+        String url = composeUrl(restful.uri, restful.appkey, restful.protocol);
+        if (url != null) {
             return requestSpecification
                     .when().request(restful.method, url)
                     .then().extract().response();
