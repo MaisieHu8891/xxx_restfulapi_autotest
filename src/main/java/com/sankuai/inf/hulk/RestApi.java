@@ -1,7 +1,7 @@
 package com.sankuai.inf.hulk;
 
 /**
- * 配置封装，请求封装
+ * 封装rest assured, 提供不同的方式去请求，获取返回
  * Created by hujunxiang on 2019-04-26
  */
 

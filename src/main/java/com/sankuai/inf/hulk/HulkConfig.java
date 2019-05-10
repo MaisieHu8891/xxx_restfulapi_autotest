@@ -1,5 +1,6 @@
 package com.sankuai.inf.hulk;
 /**
+ * 从文件获取全局配置，单例
  * Created by hujunxiang on 2019-04-26
  */
 
