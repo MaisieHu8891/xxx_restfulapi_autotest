@@ -1,6 +1,8 @@
 current: test
 env:
-  dev:
-    "qyapi.weixin.qq.com": "qyapi.weixin.qq.com"
   test:
-    "qyapi.weixin.qq.com": "140.207.127.79"
+    "com.sankuai.inf.hulk.registryapi": "registryapionline.inf.test.sankuai.com"
+    "com.sankuai.inf.hulk.pierui": "pierui.inf.test.sankuai.com"
+  dev:
+    "com.sankuai.inf.hulk.registryapi": "registryapionline.inf.dev.sankuai.com"
+    "com.sankuai.inf.hulk.pierui": "pierui.inf.dev.sankuai.com"

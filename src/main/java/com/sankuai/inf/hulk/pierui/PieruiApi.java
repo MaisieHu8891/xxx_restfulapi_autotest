@@ -1,4 +1,6 @@
 package com.sankuai.inf.hulk.pierui;
 
-public class PieruiApi {
+import com.sankuai.inf.hulk.RestApi;
+
+public class PieruiApi extends RestApi {
 }
