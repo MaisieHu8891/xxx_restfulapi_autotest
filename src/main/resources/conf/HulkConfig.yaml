@@ -1,0 +1,6 @@
+current: test
+env:
+  dev:
+    "qyapi.weixin.qq.com": "qyapi.weixin.qq.com"
+  test:
+    "qyapi.weixin.qq.com": "140.207.127.79"
