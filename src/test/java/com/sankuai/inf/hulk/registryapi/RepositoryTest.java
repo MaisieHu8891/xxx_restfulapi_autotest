@@ -34,6 +34,6 @@ public class RepositoryTest {
     @Issue("4873/workItem/defect/detail/2565076")
     @TmsLink("4873/case/testCase")
     public void testPathList() {
-        repository.pathList("sha256:0de43cde2c4b864a8e4a84bbd9958e47c5d851319f118203303d040b0a74f159",0).then().statusCode(200).body(containsString("\"code\":0"));
+        repository.pathList("sha256:0de43cde2c4b864a8e4a84bbd9958e47c5d851319f118203303d040b0a74f159",0).then().statusCode(200).body("code",equalTo(0));
     }
 }
