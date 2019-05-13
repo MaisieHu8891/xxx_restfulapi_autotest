@@ -3,20 +3,22 @@ package utils;
  * Created by hujunxiang on 2019-05-05
  */
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
+import java.io.*;
+
 
 public class ExecCmd{
     private static final Logger logger = LoggerFactory.getLogger(ExecCmd.class);
 
+
+
     /**
      * 执行命令，结果以String返回
      */
-    public String execCMDget(String cmmand) {
+    public String getExecRes(String cmmand) {
         Process p;
         try {
             p = Runtime.getRuntime().exec(cmmand);
@@ -48,4 +50,37 @@ public class ExecCmd{
         }
     }
 
+    /**
+     * 执行.sh脚本文件
+     */
+    public void execShell(String shellfile,String... param){
+        String[] cmdlist= new String[]{shellfile};
+        cmdlist = ArrayUtils.addAll(cmdlist,param);
+        ProcessBuilder processChmod = new ProcessBuilder("chmod","777",shellfile);
+        ProcessBuilder processExecShell = new ProcessBuilder(cmdlist);
+        int runningStatus = 0;
+        String s = null;
+        try {
+            processChmod.start();
+            Process pexecShell = processExecShell.start();
+            try {
+                runningStatus = pexecShell.waitFor();
+                BufferedReader stdInput = new BufferedReader(new InputStreamReader(pexecShell.getInputStream()));
+                BufferedReader stdError = new BufferedReader(new InputStreamReader(pexecShell.getErrorStream()));
+                while ((s = stdInput.readLine()) != null) {
+                    logger.debug(s);
+                }
+                while ((s = stdError.readLine()) != null) {
+                    logger.debug(s);
+                }
+            } catch (InterruptedException e) {
+                logger.error(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+        }
+        if (runningStatus != 0) {
+        }
+    }
 }

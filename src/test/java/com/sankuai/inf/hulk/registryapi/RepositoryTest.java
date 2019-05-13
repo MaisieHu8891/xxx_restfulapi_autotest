@@ -30,10 +30,15 @@ public class RepositoryTest {
         repository.pathStatus(map).then().statusCode(200).body("code",equalTo(0));
     }
 
-    @Test(description = "api/repository/path/list")
+    @Test(dataProvider = "get_image_digest", dataProviderClass = data.RegistryDataProvider.class,description = "api/repository/path/list")
     @Issue("4873/workItem/defect/detail/2565076")
     @TmsLink("4873/case/testCase")
-    public void testPathList() {
-        repository.pathList("sha256:0de43cde2c4b864a8e4a84bbd9958e47c5d851319f118203303d040b0a74f159",0).then().statusCode(200).body("code",equalTo(0));
+    public void testPathList(String digest, Integer syncType) {
+        repository.pathList(digest,syncType).then().statusCode(200).body("code",equalTo(0));
+    }
+
+
+    public void testChangePathStatus(){
+
     }
 }

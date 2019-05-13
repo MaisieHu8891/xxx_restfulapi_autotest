@@ -65,7 +65,7 @@ public class RestApi {
 
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         try {
-            return mapper.readValue(HulkConfig.class.getResourceAsStream(path), Restful.class);
+            return mapper.readValue(RestApi.class.getResourceAsStream(path), Restful.class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
