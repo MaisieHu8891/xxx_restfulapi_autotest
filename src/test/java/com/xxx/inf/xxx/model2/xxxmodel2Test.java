@@ -1,6 +1,6 @@
 package com.xxx.inf.xxx.model2;
 /**
- * model2xxxApi-Repository相关测试
+ * model2xxxApi-xxx相关测试
  * Created by hujunxiang on 2019-04-28
  */
 import data.model1DataProvider;
@@ -31,8 +31,8 @@ public class xxxmodel2Test {
     }
 
     @Test(dataProvider = "get_image_digest", dataProviderClass = model1DataProvider.class,description = "api/xxxmodel2/path/list")
-    @Issue("4873/workItem/defect/detail/2565076")
-    @TmsLink("4873/case/testCase")
+    @Issue("4873/x/xxect/xxx/2565076")
+    @TmsLink("4873/xxx/testCase")
     public void testPathList(String digest, Integer syncType) {
         xxxmodel2.pathList(digest,syncType).then().statusCode(200).body("code",equalTo(0));
     }

@@ -13,16 +13,16 @@ public class xxxmodel2 extends model2xxxApi {
     private static final Logger logger = LoggerFactory.getLogger(xxxmodel2.class);
 
     public Response pathStatus(HashMap<String, Object> map){
-        map.put("_file", "/repositorydata/path_status.json");
-        return getResponseFromYaml("/repositoryapi/path_status.yaml", map);
+        map.put("_file", "/modeldata/path_status.json");
+        return getResponseFromYaml("/m2api/path_status.yaml", map);
 
     }
 
-    public Response pathList(String digest,Integer syncType) {
+    public Response pathList(String pa1,Integer pa2) {
         HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("digest", digest);
-        map.put("syncType", syncType);
-        return getResponseFromYaml("/repositoryapi/path_list.yaml", map);
+        map.put("pa1", pa1);
+        map.put("pa2", pa2);
+        return getResponseFromYaml("/m2api/path_list.yaml", map);
 
     }
 

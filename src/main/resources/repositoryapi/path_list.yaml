@@ -1,7 +1,0 @@
-appkey: com.xxx.inf.xxx.model2
-protocol: http
-method: get
-uri: api/repository/path/list
-query:
-  digest: "sha256:0de43cde2c4b864a8e4a84bbd9958e47c5d851319f118203303d040b0a74f159"
-  syncType: 0

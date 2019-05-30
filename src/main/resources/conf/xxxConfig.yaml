@@ -1,8 +1,8 @@
 current: test
 env:
   test:
-    "com.sankuai.inf.hulk.registryapi": "registryapionline.inf.test.sankuai.com"
-    "com.sankuai.inf.hulk.pierui": "model1.inf.test.sankuai.com"
+    "com.xxx.xxx.xxx.xxx": "xxx.xxx.test.com"
+    "com.xxx.xxx.xxx.xxx1": "model1.xxx.test.xxx.com"
   dev:
-    "com.sankuai.inf.hulk.registryapi": "registryapionline.inf.dev.sankuai.com"
-    "com.sankuai.inf.hulk.pierui": "model1.inf.dev.sankuai.com"
+    "com.xxx.xxx.xxx.xxx": "xxx.xxx.dev.com"
+    "com.xxx.xxx.xxx.xxx1": "model1.xxx.dev.xxx.com"

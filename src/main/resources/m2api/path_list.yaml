@@ -1,0 +1,7 @@
+appkey: com.xxx.xxx.xxx.model2
+protocol: http
+method: get
+uri: api/xxx/xxx/list
+query:
+  digest: ""
+  syncType: 0
