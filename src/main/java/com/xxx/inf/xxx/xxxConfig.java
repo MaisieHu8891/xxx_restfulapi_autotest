@@ -17,7 +17,7 @@ public class xxxConfig {
 
     public static xxxConfig getInstance(){
         if(xxxConfig ==null){
-            xxxConfig =load("/conf/xxxConfig.yaml");
+            xxxConfig =load("/conf/xxxxConfig.yaml");
         }
         return xxxConfig;
     }
