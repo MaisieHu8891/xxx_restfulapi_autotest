@@ -1,7 +1,7 @@
 {
   "id": 1609,
-  "digest": "sha256:f2557f94cac1cc4509d0483cb6e302da841ecd6f82eb2e91dc7ba6cfd0c580ab",
-  "path": "docker/registry/v2/repositories/custom_test/com.sankuai.inf.hulk.pierui/_manifests/tags/v1.0/index/sha256/f2557f94cac1cc4509d0483cb6e302da841ecd6f82eb2e91dc7ba6cfd0c580ab/link",
+  "digest": "",
+  "path": "",
   "status": 0,
   "create_time": 1556007887262,
   "update_time": 1556007887286,

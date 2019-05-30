@@ -1,4 +1,4 @@
-package com.sankuai.inf.hulk;
+package com.xxx.inf.xxx;
 /**
  * Created by hujunxiang on 2019-04-26
  */

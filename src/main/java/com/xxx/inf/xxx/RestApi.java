@@ -1,4 +1,4 @@
-package com.sankuai.inf.hulk;
+package com.xxx.inf.xxx;
 
 /**
  * 封装rest assured, 提供不同的方式去请求，获取返回
@@ -7,7 +7,6 @@ package com.sankuai.inf.hulk;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.github.mustachejava.DefaultMustacheFactory;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import de.sstoehr.harreader.HarReader;
@@ -20,9 +19,7 @@ import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +43,7 @@ public class RestApi {
      * 多环境支持，根据domain，组装url
      */
     private String composeUrl(String uri, String appkey, String protocol) {
-        HashMap<String, String> appkeyDomain = HulkConfig.getInstance().env.get(HulkConfig.getInstance().current);
+        HashMap<String, String> appkeyDomain = xxxConfig.getInstance().env.get(xxxConfig.getInstance().current);
         String domain = "";
         String url = "";
         for (Map.Entry<String, String> entry : appkeyDomain.entrySet()) {
@@ -153,30 +150,23 @@ public class RestApi {
         return documentContext.jsonString();
     }
 
-    /**
-     * 如果post数据不是json格式，可适应Mustache模板技术
-     */
-    public static String templateFromMustache(String path, HashMap<String, Object> map) {
-        //new DefaultMustacheFactory().compile("/repositorydata/create.mustache").execute()
-
-        return null;
-        //return documentContext.jsonString();
-    }
-
-    public Response templateFromSwagger(String path, String pattern, HashMap<String, Object> map) {
-        //todo: 支持从swagger自动生成接口定义并发送
-        //todo: 分析swagger codegen
-        //从har中读取请求，进行更新
-        DocumentContext documentContext = JsonPath.parse(RestApi.class
-                .getResourceAsStream(path));
-        map.entrySet().forEach(entry -> {
-            documentContext.set(entry.getKey(), entry.getValue());
-        });
-
-        String method = documentContext.read("method");
-        String url = documentContext.read("url");
-        return getDefaultRequestSpecification().when().request(method, url);
-    }
+//    /**
+//     * 如果post数据不是json格式，可使用Mustache模板技术
+//     */
+//    public static String templateFromMustache(String tempFileName, HashMap<String, Object> map) {
+//        try {
+//            String filePath = this.getClass().getClassLoader().getResource(tempFileName).getPath();
+//            logger.debug(filePath);
+//            Writer writer = new OutputStreamWriter(System.out);
+//            MustacheFactory mf = new DefaultMustacheFactory();
+//            Mustache mustache = mf.compile(filePath);
+//            mustache.execute(writer,map);
+//            writer.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     /**
      * 根据yaml生成接口定义并发送
@@ -233,10 +223,6 @@ public class RestApi {
         return null;
     }
 
-    public Response readApiFromYaml(String path, HashMap<String, Object> map) {
-        //todo: 动态调用
-        return null;
-    }
 
 }
 

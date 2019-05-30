@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="hulk_restfulapi_autotest" verbose="1" >
-    <test name="RegistryApi" >
+    <test name="xxx" >
         <classes>
-            <class name="com.sankuai.inf.hulk.registryapi.RepositoryTest" />
+            <class name="xxxmodel2Test" />
         </classes>
     </test>
 

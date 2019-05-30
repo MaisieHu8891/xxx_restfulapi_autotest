@@ -1,14 +1,14 @@
-package com.sankuai.inf.hulk.registryapi;
+package com.xxx.inf.xxx.model2;
 /**
  * Created by hujunxiang on 2019-04-26
  */
-import com.sankuai.inf.hulk.RestApi;
+import com.xxx.inf.xxx.RestApi;
 import io.restassured.builder.ResponseBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-public class RegistryApi extends RestApi {
+public class model2xxxApi extends RestApi {
 
     @Override
     public RequestSpecification getDefaultRequestSpecification() {

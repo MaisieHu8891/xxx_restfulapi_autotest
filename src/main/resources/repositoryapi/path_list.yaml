@@ -1,4 +1,4 @@
-appkey: com.sankuai.inf.hulk.registryapi
+appkey: com.xxx.inf.xxx.model2
 protocol: http
 method: get
 uri: api/repository/path/list
